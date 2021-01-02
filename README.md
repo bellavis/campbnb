@@ -1,4 +1,5 @@
-# CAMPBNB - Work In Progress :warning:
+# CAMPBNB :tent:
+### Work In Progress :warning:
 A full stack application – performs CRUD operations for users. 
 Actionable commands are displayed dynamically on the site (edit/delete/review) for campground and comments, depending 
 on a user’s authorization/ownership.

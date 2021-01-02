@@ -7,7 +7,7 @@ Tools and technologies used: JavaScript, NodeJS, Express, HTML, CSS. Database: M
 
 ## To install and run:
 ### Install:
-* npm install i
+* npm install
 
 ### Run:
 * node app.js

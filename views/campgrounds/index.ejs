@@ -1,32 +1,39 @@
 <% layout('layouts/boilerplate')%>
-<div class="float-end ">
-    <a class="btn btn-info mb-3 " href="/campgrounds/new">Add New Campground</a>
-</div>
-    <h1 class="mb-3">All Campgrounds</h1>
+<div class="container" style="width: 80%;">
+    <div class="float-end ">
+        <a class="btn btn-info mb-3 " href="/campgrounds/new">Add New Campground</a>
+    </div>
     
-    <% for (let campground of campgrounds){%>
-        <div class="card" mb-3>
-            <div class="row">
-                <div class="col-md-4">
-                    <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= campground.title %>
-                        </h5>
-                        <p class="card-text">
-                            <%= campground.description %>
-                        </p>
-                        <p class="card-text">
-                            <small class="text-muted">
-                                <%= campground.location%>
-                            </small>
-                        </p>
-                        <a class="btn btn-outline-info" href="/campgrounds/<%=campground._id%>">View <%=campground.title%>
-                        </a>
+    <h1 class="mb-3">All Campgrounds</h1>
+    <div class="row">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% for (let campground of campgrounds){%>
+                <div class="col">
+                <div class="card">
+                    <% if(campground.images.length){ %> 
+                            <img class="card-img-top rounded"  alt="" src="<%=campground.images[0].url%>">
+                            <% }else{ %> 
+                                <img class="card-img-top rounded"  alt="" src="https://us.123rf.com/450wm/luplupme/luplupme1612/luplupme161200122/67594885-ilustraci%C3%B3n-vectorial-de-monta%C3%B1a-elementos-de-la-naturaleza-silueta-cimas-de-las-monta%C3%B1as-de-hielo-icono-de-n.jpg?ver=6">
+                            <% } >
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= campground.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= campground.description %>
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        <%= campground.location%>
+                                    </small>
+                                </p>
+                                <a class="btn btn-outline-info" href="/campgrounds/<%=campground._id%>">View <%=campground.title%>
+                                </a>
+                            </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <% }%>
+                <% }%>
+    </div>
+</div>
+
+</div>

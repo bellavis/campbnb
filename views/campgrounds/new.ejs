@@ -1,8 +1,8 @@
 <% layout('layouts/boilerplate')%>
-    <div class="row">
+    <div class="row mb-5">
         <h1 class="text-center">New Campground</h1>
         <div class="col-6 offset-3">
-            <form action="/campgrounds" method="POST" novalidate class="validated-form">
+            <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
 
                 <!-- title---------------- -->
 
@@ -18,12 +18,14 @@
                     <input class="form-control" type="text" id="location" name="campground[location]" required>
                 </div>
 
-                <!-- image---------------- -->
+                
+                
 
-                <div class="mb-3">
+                <!-- old url input -->
+                <!-- <div class="mb-3">
                     <label class="form-label" for="image">Image Url</label>
                     <input class="form-control" type="text" id="image" name="campground[image]" required>
-                </div>
+                </div> -->
 
                 <!-- price----------------- -->
 
@@ -44,6 +46,21 @@
                         required></textarea>
                 </div>
 
+                <!-- image---------------- -->
+                
+                <div class="mb-5">
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Add images</label>
+                        <input id="image" name="image" class="form-control" type="file"  multiple>
+                      </div>
+                    <!-- <div class="form-file custom-file">
+                        <input type="file" class="form-file-input" id="image" name="image" multiple>
+                        <label class="form-file-label" for="image">
+                            <span class="form-file-text custom-file-label">Choose image(s)...</span>
+                            <span class="form-file-button">Browse</span>
+                        </label>
+                    </div> -->
+                </div>
                 <!-- submit-campground----- -->
 
                 <div class="mb-3">

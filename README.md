@@ -8,10 +8,11 @@ Tools and technologies used: JavaScript, NodeJS, Express, HTML, CSS. Database: M
 
 ## To install and run:
 ### Install:
-* npm install
+* Download the code
+* Open the commend line on the main project's folder and type: <strong> npm install </strong>
 
 ### Run:
-* node app.js
+* type: <strong> node app.js </strong>
 
 Runs the app in the development mode.<br />
 Open [http://localhost:8080/](http://localhost:8080/) to view it in the browser.

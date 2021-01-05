@@ -1,12 +1,11 @@
 <% layout('layouts/boilerplate')%>
-<div class="container" style="width: 80%;">
-    <div class="float-end ">
-        <a class="btn btn-info mb-3 " href="/campgrounds/new">Add New Campground</a>
+<div class="container " style="width: 80%;">
+    <div class="mx-auto mb-3 ">
+        <a class="float-end btn btn-info" href="/campgrounds/new">Add New Campground</a>
+        <h1>All Campgrounds</h1>
     </div>
-    
-    <h1 class="mb-3">All Campgrounds</h1>
     <div class="row">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-5 row-cols-md-3 g-4 mx-auto">
             <% for (let campground of campgrounds){%>
                 <div class="col">
                 <div class="card">
@@ -14,7 +13,7 @@
                             <img class="card-img-top rounded"  alt="" src="<%=campground.images[0].url%>">
                             <% }else{ %> 
                                 <img class="card-img-top rounded"  alt="" src="https://us.123rf.com/450wm/luplupme/luplupme1612/luplupme161200122/67594885-ilustraci%C3%B3n-vectorial-de-monta%C3%B1a-elementos-de-la-naturaleza-silueta-cimas-de-las-monta%C3%B1as-de-hielo-icono-de-n.jpg?ver=6">
-                            <% } >
+                            <% } %>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= campground.title %>
@@ -24,7 +23,9 @@
                                 </p>
                                 <p class="card-text">
                                     <small class="text-muted">
-                                        <%= campground.location%>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                        </svg> <%= campground.location%>
                                     </small>
                                 </p>
                                 <a class="btn btn-outline-info" href="/campgrounds/<%=campground._id%>">View <%=campground.title%>

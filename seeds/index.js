@@ -28,6 +28,13 @@ const seedDB = async () => {
             price: ranPrice,
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
+            geometry: {
+                type: "Point",
+                coordinates: [
+                    cities[random1000].longitude,
+                    cities[random1000].latitude,
+                ]
+            },
             images: [{
                url: 'https://res.cloudinary.com/dmekt7cps/image/upload/v1609694759/Campbnb/g2zwyxf35hmyn6y7d6xh.jpg',
                filename: 'Campbnb/g2zwyxf35hmyn6y7d6xh'

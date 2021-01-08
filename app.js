@@ -6,7 +6,6 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
-const session = require('express-session');
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
@@ -18,12 +17,13 @@ const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
+const session = require('express-session');
 const MongoDBStore = require("connect-mongo")(session);
 const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/campbnb';
 
 
 //mongoose.connect('mongodb://localhost:27017/campbnb'
-mongoose.connect('mongodb://localhost:27017/campbnb', {
+mongoose.connect( dbURL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -94,12 +94,12 @@ app.use(
 );
 //end of helmet policy -----
 
-
+const secret = process.env.SECRET || 'thishouldbeasecret!';
 const store = new MongoDBStore({
     //dbURL (url)
-    secret: 'thisshouldbeabettersecret!',
-    url: 'mongodb://localhost:27017/campbnb'
-    touchAfter: 24 * 60 * 60
+    secret,
+    url: dbURL,
+    touchAfter: 24 * 60 * 60 // in seconds
     });
 
 store.on("error", function (e) {
@@ -107,7 +107,9 @@ store.on("error", function (e) {
 })
 
 const sessionConfig = {
-    secret: 'thisshouldbeabettersecret!',
+    store,
+    name: 'session',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
